@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AccountModel {
+public struct AccountModel: Model {
     var id: String
     var name: String
     var email: String

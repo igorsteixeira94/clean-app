@@ -25,17 +25,38 @@ final class RemoteAddAccountTests: XCTestCase {
     func test_add_should_complete_with_error_if_client_complete_with_fails() {
         let (sut, httpClientSpy) = makeSut()
         let exp = expectation(description: "waiting")
+
         sut.add(addAccountModel: makeAddAccountModel()) { result in
             switch result {
             case .failure(let error): XCTAssertEqual(error, .unexpected)
-            case .success(_): XCTFail("Expected error receive \(result)")
+            case .success: XCTFail("Expected error received \(result) instead")
+            }
+            exp.fulfill()
+        }
+        
+        httpClientSpy.completeWithError(.noConnectivity)
+        wait(for: [exp], timeout: 1)
+    }
+    
+    func test_add_should_complete_with_error_if_client_complete_with_data() {
+        let (sut, httpClientSpy) = makeSut()
+        let exp = expectation(description: "waiting")
+        let expectedAccount = makeAccountModel()
+        
+        
+        sut.add(addAccountModel: makeAddAccountModel()) { result in
+            switch result {
+            case .failure(let error): XCTFail("Expected error received \(result) instead")
+            case .success(let account): XCTAssertEqual(account, expectedAccount)
             }
             
             exp.fulfill()
         }
-        httpClientSpy.completeWithError(.noConnectivity)
+        httpClientSpy.completeWithData(expectedAccount.toData()!)
         wait(for: [exp], timeout: 1)
     }
+    
+
 }
 
 extension RemoteAddAccountTests {
@@ -54,6 +75,13 @@ extension RemoteAddAccountTests {
                                passwordConfirmation: "123456")
     }
     
+    func makeAccountModel() -> AccountModel {
+        return AccountModel(id: "any_id",
+                            name: "Jon Doe",
+                            email: "jonDoe@mail.com",
+                            password: "123456")
+    }
+    
     class HttpClientSpy: HttpPostClient {
         var url = [URL]()
         var data: Data?
@@ -67,6 +95,10 @@ extension RemoteAddAccountTests {
         
         func completeWithError(_ error: HttpError) {
             completion?(.failure(error))
+        }
+        
+        func completeWithData(_ data: Data) {
+            completion?(.success(data))
         }
     }
 }
