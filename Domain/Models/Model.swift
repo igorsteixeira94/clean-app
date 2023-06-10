@@ -6,5 +6,4 @@ extension Model {
     public func toData() -> Data? {
         try? JSONEncoder().encode(self)
     }
-    
 }

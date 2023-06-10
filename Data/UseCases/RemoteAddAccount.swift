@@ -15,7 +15,7 @@ final class RemoteAddAccount {
         httpClient.post(to: url, with: data) { result in
             switch result {
             case .success(let data):
-                if let model: AccountModel = data.toModel() {
+                if let model: AccountModel = data?.toModel() {
                     completion(.success(model))
                 } else {
                     completion(.failure(.unexpected))
@@ -23,11 +23,5 @@ final class RemoteAddAccount {
             case .failure: completion(.failure(.unexpected))
             }
         }
-    }
-}
-
-extension Data {
-    public func toModel<T: Decodable>() -> T? {
-        return try? JSONDecoder().decode(T.self, from: self)
     }
 }
