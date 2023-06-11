@@ -1,5 +1,5 @@
-import Foundation
 import Alamofire
+import Foundation
 import Data
 
 public final class AlamofireAdapter: HttpPostClient {
