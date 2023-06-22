@@ -13,6 +13,11 @@
 		860AA9E0296CEEC60092878D /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AA9DF296CEEC60092878D /* TestFactories.swift */; };
 		860AA9E3296CEF260092878D /* HttpClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AA9E2296CEF260092878D /* HttpClientSpy.swift */; };
 		860AA9E6296CEFA00092878D /* AccountModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AA9E5296CEFA00092878D /* AccountModel+Stub.swift */; };
+		86290DA82A43E1D400283F88 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DC9BB129644722003FDE47 /* Domain.framework */; };
+		86290DA92A43E1D400283F88 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86DC9BB129644722003FDE47 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86290DAF2A43E1FF00283F88 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86290DAE2A43E1FF00283F88 /* AlertView.swift */; };
+		86290DB22A43E25A00283F88 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86290DB12A43E25A00283F88 /* SignUpPresenter.swift */; };
+		86290DB52A43E31700283F88 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86290DB42A43E31700283F88 /* String+Ext.swift */; };
 		862A36692A364D4E000C60C0 /* AlamofireAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869FB5572A3646AC00752DC9 /* AlamofireAdapter.swift */; };
 		862CFDDD2A34D5580097CF79 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862CFDDC2A34D5580097CF79 /* Data+Ext.swift */; };
 		86670BA7296A207C0063B87E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86670BA6296A207C0063B87E /* Model.swift */; };
@@ -37,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		86290DAA2A43E1D400283F88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86DC9B97296446E5003FDE47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86DC9BB029644722003FDE47;
+			remoteInfo = Domain;
+		};
 		8684DD412A4103A00036E8EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 86DC9B97296446E5003FDE47 /* Project object */;
@@ -75,6 +87,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		86290DAC2A43E1D500283F88 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				86290DA92A43E1D400283F88 /* Domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		86C976422970D57700903E7A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,6 +129,9 @@
 		860AA9DF296CEEC60092878D /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
 		860AA9E2296CEF260092878D /* HttpClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientSpy.swift; sourceTree = "<group>"; };
 		860AA9E5296CEFA00092878D /* AccountModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountModel+Stub.swift"; sourceTree = "<group>"; };
+		86290DAE2A43E1FF00283F88 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		86290DB12A43E25A00283F88 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		86290DB42A43E31700283F88 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		862A366A2A364EC1000C60C0 /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI.xctestplan; sourceTree = "<group>"; };
 		862CFDDC2A34D5580097CF79 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
 		86670BA6296A207C0063B87E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -132,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86290DA82A43E1D400283F88 /* Domain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +247,30 @@
 			path = Doubles;
 			sourceTree = "<group>";
 		};
+		86290DAD2A43E1E900283F88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86290DAE2A43E1FF00283F88 /* AlertView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86290DB02A43E24C00283F88 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				86290DB12A43E25A00283F88 /* SignUpPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		86290DB32A43E30700283F88 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				86290DB42A43E31700283F88 /* String+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		862CFDDB2A34D5450097CF79 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +323,9 @@
 		8684DD392A41039F0036E8EC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				86290DB32A43E30700283F88 /* Extensions */,
+				86290DB02A43E24C00283F88 /* Presenter */,
+				86290DAD2A43E1E900283F88 /* Views */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -427,10 +481,12 @@
 				8684DD342A41039F0036E8EC /* Sources */,
 				8684DD352A41039F0036E8EC /* Frameworks */,
 				8684DD362A41039F0036E8EC /* Resources */,
+				86290DAC2A43E1D500283F88 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				86290DAB2A43E1D400283F88 /* PBXTargetDependency */,
 			);
 			name = Presentation;
 			productName = Presentation;
@@ -564,6 +620,7 @@
 				TargetAttributes = {
 					8684DD372A41039F0036E8EC = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					8684DD3E2A4103A00036E8EC = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -670,6 +727,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86290DB52A43E31700283F88 /* String+Ext.swift in Sources */,
+				86290DB22A43E25A00283F88 /* SignUpPresenter.swift in Sources */,
+				86290DAF2A43E1FF00283F88 /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +797,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		86290DAB2A43E1D400283F88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86DC9BB029644722003FDE47 /* Domain */;
+			targetProxy = 86290DAA2A43E1D400283F88 /* PBXContainerItemProxy */;
+		};
 		8684DD422A4103A00036E8EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8684DD372A41039F0036E8EC /* Presentation */;
@@ -768,6 +833,7 @@
 		8684DD472A4103A00036E8EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -793,6 +859,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -800,6 +867,7 @@
 		8684DD482A4103A00036E8EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -832,6 +900,7 @@
 		8684DD492A4103A00036E8EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -848,6 +917,7 @@
 		8684DD4A2A4103A00036E8EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
