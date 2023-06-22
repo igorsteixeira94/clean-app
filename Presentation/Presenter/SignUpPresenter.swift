@@ -2,18 +2,20 @@ import Foundation
 
 public class SignUpPresenter {
     private let alertView: AlertView
+    private let emailValidator: EmailValidatorType
     
-    public init (alertView: AlertView) {
+    public init (alertView: AlertView, emailValidator: EmailValidatorType) {
         self.alertView = alertView
+        self.emailValidator = emailValidator
     }
     
-    public func signUp(viewModel: SignUpViewMdel) {
+    public func signUp(viewModel: SignUpViewModel) {
         if let erroMessage = validate(viewModel: viewModel) {
             alertView.showMessage(viewModel: AlertViewModel(title: "Falha na validação", message: erroMessage))
         }
     }
     
-    private func validate(viewModel: SignUpViewMdel) -> String? {
+    private func validate(viewModel: SignUpViewModel) -> String? {
         if viewModel.name.isNilOrEmpty {
             return "O campo Nome é obrigatório"
         }
@@ -30,15 +32,23 @@ public class SignUpPresenter {
             return "O campo Confirmar senha é obrigatório"
         }
         
+        if viewModel.password != viewModel.passwordConfirmation {
+            return "Falha ao confirmar senha"
+        }
+        
+        if !emailValidator.isValid(email: viewModel.email!) {
+            return "Email inválido"
+        }
+        
         return nil
     }
 }
 
-public struct SignUpViewMdel {
-    var name: String?
-    var email: String?
-    var password: String?
-    var passwordConfirmation: String?
+public struct SignUpViewModel {
+    public var name: String?
+    public var email: String?
+    public var password: String?
+    public var passwordConfirmation: String?
     
     public init(name: String? = nil,
                 email: String? = nil,
